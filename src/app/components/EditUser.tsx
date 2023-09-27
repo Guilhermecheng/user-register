@@ -8,11 +8,16 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import TextField from '@mui/material/TextField';
 
-function SimpleDialog(props) {
-  const { onClose, selectedValue, open } = props;
+interface DialogProps {
+  open: boolean;
+  onClose: () => void;
+}
+
+function SimpleDialog(props: DialogProps) {
+  const { onClose, open } = props;
 
   const handleClose = () => {
-    onClose(selectedValue);
+    onClose();
   };
 
   return (
