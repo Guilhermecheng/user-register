@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useContext } from "react"
 import { GlobalContext } from "../contexts/GlobalContext"
+import CreateUserDialog from "./CreateUserDialog";
 
 interface UserProps {
     email: string;
@@ -42,7 +43,7 @@ export function UserList() {
     console.log(users)
 
     return (
-        <section id="user-list" className={`absolute right-0 w-full mt-20 sm:mt-0 sm:w-[calc(100%-100px)] ${isLateralMenuOpen ? "lg:w-[calc(100%-300px)]" : "lg:w-[calc(100%-100px)]" }`}>
+        <section id="user-list" className={`absolute right-0 w-full mt-20 sm:mt-0 sm:w-[calc(100%-100px)] ${isLateralMenuOpen ? "lg:w-[calc(100%-300px)]" : "lg:w-[calc(100%-100px)]" }  transition-all duration-200`}>
             <div className="p-10 pb-40 lg:pb-20 rounded-md overflow-auto h-screen">
                 <div className="flex w-full items-center justify-between gap-x-2 text-sm lg:text-base font-bold">
 
@@ -52,9 +53,11 @@ export function UserList() {
                         </h1>
                     </div>
 
-                    <div className="flex items-center justify-center p-4 bg-alleasy-blue/90 hover:bg-blue-600 text-white rounded-lg cursor-pointer">
-                        <h1 className="">Novo usuário +</h1>
-                    </div>
+                    <CreateUserDialog>
+                        <div className="flex items-center justify-center p-4 bg-alleasy-blue/90 hover:bg-blue-600 text-white rounded-lg cursor-pointer">
+                            <h1 className="">Novo usuário +</h1>
+                        </div>
+                    </CreateUserDialog>
                 </div>
 
                 <div className='h-[2px] w-full bg-zinc-500/40 my-8' />
@@ -73,7 +76,7 @@ export function UserList() {
                                 <tr key={i} className='border-b text-sm'>
                                     <td className="text-center px-6 py-2 whitespace-nowrap flex items-center">
                                         <Image src={ user.picture.medium } alt={ user.name.first } width={40} height={40} className="rounded-full" />
-                                        <span className="ml-4">{ user.name.first }</span>
+                                        <span className="ml-4">{ user.name.first } { user.name.last }</span>
                                     </td>
                                     <td className="text-center px-6 py-2 whitespace-nowrap">+ info</td>
                                 </tr>
@@ -99,7 +102,7 @@ export function UserList() {
                                     <tr key={i} className='border-b text-sm'>
                                         <td className="text-center px-6 py-2 whitespace-nowrap flex items-center">
                                             <Image src={ user.picture.medium } alt={ user.name.first } width={40} height={40} className="rounded-full" />
-                                            <span className="ml-4">{ user.name.first }</span>
+                                            <span className="ml-4">{ user.name.first } { user.name.last }</span>
                                         </td>
                                         <td className="text-center px-6 py-2 whitespace-nowrap">{ user.gender }</td>
                                         <td className="text-center px-6 py-2 whitespace-nowrap">{ user.nat }</td>

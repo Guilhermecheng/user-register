@@ -12,6 +12,8 @@ import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrow
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import { GlobalContext } from '../contexts/GlobalContext';
+import CreateUserDialog from './CreateUserDialog';
+import EditUser from './EditUser';
 
 
 export function LateralMenu() {
@@ -23,33 +25,32 @@ export function LateralMenu() {
     }
 
     return (
-        <div className={`hidden sm:block absolute top-0 left-0 h-screen w-[100px] ${isLateralMenuOpen ? "lg:w-[300px]" : "lg:w-[100px]"} bg-alleasy-blue text-white shadow-lg shadow-black px-0 lg:px-8 py-10 transition-all `}>
+        <div className={`hidden sm:block absolute top-0 left-0 h-screen w-[100px] ${isLateralMenuOpen ? "lg:w-[300px]" : "lg:w-[100px]"} bg-alleasy-blue text-white shadow-lg shadow-black px-0 lg:px-8 py-10 transition-all duration-150`}>
 
             <div className='flex flex-col items-center gap-y-4 text-sm'>
-                <div className='flex items-center'>
+                <div className={`flex items-center ${isLateralMenuOpen ? '' : 'flex-col justify-center' }`}>
                     <RecentActorsIcon className='flex text-4xl' />
+
                     <h1 className={`hidden ${isLateralMenuOpen ? 'lg:flex' : 'lg:hidden' } lg:ml-4 text-sm font-bold`}>AllEasy`s Userbook</h1>
 
                     <KeyboardDoubleArrowLeftIcon 
-                        className={`hidden ${isLateralMenuOpen ? 'lg:flex' : 'lg:hidden' } ml-8 cursor-pointer hover:bg-white/20 rounded-md`}
+                        className={`hidden lg:flex  cursor-pointer hover:bg-white/20 rounded-md ${isLateralMenuOpen ? "ml-8" : "rotate-180 mt-4"} transition-all`}
                         onClick={() => setisLateralMenuOpen(!isLateralMenuOpen)} 
                     />
                 </div>
-                <KeyboardDoubleArrowRightIcon 
-                    className={`hidden ${isLateralMenuOpen ? 'lg:hidden' : 'lg:flex'} cursor-pointer hover:bg-white/20 rounded-md`} 
-                    onClick={() => setisLateralMenuOpen(!isLateralMenuOpen)} 
-                />
 
-
-                <div className='flex items-center hover:bg-white/20 cursor-pointer px-4 py-2 mt-16 rounded-md'>
-                    <PersonAddAlt1Icon />
-                    <span className={`hidden ml-2 ${isLateralMenuOpen ? 'lg:flex' : 'lg:hidden' }`}>Cadastrar novo usuário</span>
+                <div className='mt-16'>
+                    <CreateUserDialog>
+                        <PersonAddAlt1Icon />
+                        <span className={`hidden ml-2 ${isLateralMenuOpen ? 'lg:flex' : 'lg:hidden' }`}>Cadastrar novo usuário</span>
+                    </CreateUserDialog>
                 </div>
-
-                <div className='flex items-center hover:bg-white/20 cursor-pointer px-4 py-2 rounded-md'>
+                
+                <EditUser>
                     <EditNoteIcon />
                     <span className={`hidden ml-2 ${isLateralMenuOpen ? 'lg:flex' : 'lg:hidden' }`}>Editar lista de usuários</span>
-                </div>
+                </EditUser>
+                
 
                 <div className='absolute bottom-8 flex flex-col items-center w-full px-8'>
                     <div className='h-[2px] w-full bg-zinc-100/20' />
