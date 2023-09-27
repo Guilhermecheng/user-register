@@ -30,7 +30,7 @@ export function LoginForm() {
     }
 
     return (
-        <div className="text-alleasy-blue w-full max-w-[500px] flex flex-col items-center justify-center bg-white px-4 sm:px-6 md:px-8 py-6 md:py-10 rounded-xl shadow-xl shadow-zinc-800">
+        <div className="text-alleasy-blue w-full max-w-[500px] flex flex-col items-center justify-center bg-white px-4 py-6 md:py-10 rounded-xl shadow-xl shadow-zinc-800 md:shadow-none">
             <h1 className=" text-2xl md:text-3xl font-bold mb-1">Bem vindo de volta!</h1>
             <h1 className="text-sm md:text-base">Entre para continuar</h1>
 
@@ -44,7 +44,7 @@ export function LoginForm() {
                     {...register("email", { required: true })}
                     slotProps={{
                         input: {
-                            className:'w-full text-sm md:text-base px-4 py-4 rounded border border-solid border-slate-300',
+                            className:'w-full text-sm md:text-base px-4 py-4 rounded border-2 border-solid border-slate-300',
                         },
                     }}
                     aria-label="email input"
@@ -60,7 +60,7 @@ export function LoginForm() {
                     {...register("password", { required: true })}
                     slotProps={{
                         input: {
-                            className:'w-full text-sm md:text-base px-4 py-4 rounded border border-solid border-slate-300',
+                            className:'w-full text-sm md:text-base px-4 py-4 rounded border-2 border-solid border-slate-300',
                             type: "password"
                         },
                     }}
