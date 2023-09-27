@@ -12,7 +12,7 @@ import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrow
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import { GlobalContext } from '../contexts/GlobalContext';
-import CreateUserDialog from './CreateUserDialog';
+import CreateUser from './CreateUser';
 import EditUser from './EditUser';
 
 
@@ -40,10 +40,10 @@ export function LateralMenu() {
                 </div>
 
                 <div className='mt-16'>
-                    <CreateUserDialog>
+                    <CreateUser>
                         <PersonAddAlt1Icon />
                         <span className={`hidden ml-2 ${isLateralMenuOpen ? 'lg:flex' : 'lg:hidden' }`}>Cadastrar novo usuário</span>
-                    </CreateUserDialog>
+                    </CreateUser>
                 </div>
                 
                 <EditUser>

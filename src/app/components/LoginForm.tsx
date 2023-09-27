@@ -25,7 +25,6 @@ export function LoginForm() {
 
 
     function signin(data: FieldValues) {
-        console.log(data)
         router.push('/dashboard');
     }
 

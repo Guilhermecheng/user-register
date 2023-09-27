@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
+import { Button } from '@mui/base';
 
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';

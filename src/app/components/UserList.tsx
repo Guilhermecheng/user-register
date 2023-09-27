@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useContext } from "react"
 import { GlobalContext } from "../contexts/GlobalContext"
-import CreateUserDialog from "./CreateUserDialog";
+import CreateUser from "./CreateUser";
 
 interface UserProps {
     email: string;
@@ -40,7 +40,6 @@ interface UserProps {
 
 export function UserList() {
     const { users, isLateralMenuOpen } = useContext(GlobalContext);
-    console.log(users)
 
     return (
         <section id="user-list" className={`absolute right-0 w-full mt-20 sm:mt-0 sm:w-[calc(100%-100px)] ${isLateralMenuOpen ? "lg:w-[calc(100%-300px)]" : "lg:w-[calc(100%-100px)]" }  transition-all duration-200`}>
@@ -53,16 +52,16 @@ export function UserList() {
                         </h1>
                     </div>
 
-                    <CreateUserDialog>
+                    <CreateUser>
                         <div className="flex items-center justify-center p-4 bg-alleasy-blue/90 hover:bg-blue-600 text-white rounded-lg cursor-pointer">
                             <h1 className="">Novo usuário +</h1>
                         </div>
-                    </CreateUserDialog>
+                    </CreateUser>
                 </div>
 
                 <div className='h-[2px] w-full bg-zinc-500/40 my-8' />
 
-                <table className="w-full sm:hidden">
+                <table id="mobile-table" className="w-full md:hidden">
                     <thead>
                         <tr>
                             <th>Usuário</th>
@@ -85,12 +84,12 @@ export function UserList() {
                     </tbody>
                 </table> 
 
-                <div className="hidden sm:block w-full">
-                    <table className="w-full">
+                <div id="desktop-table-container" className="hidden md:block w-full">
+                    <table id="desktop-table" className="w-full">
                         <thead>
-                            <tr>
+                            <tr className="text-sm sm:text-base">
                                 <th>Usuário</th>
-                                <th>Gênero</th>
+                                <th>Email</th>
                                 <th>Nacionalidade</th>
                                 <th>Cidade</th>
                             </tr>
@@ -99,12 +98,12 @@ export function UserList() {
                             { users.map((user: UserProps, i: number) => {
                             
                                 return (
-                                    <tr key={i} className='border-b text-sm'>
-                                        <td className="text-center px-6 py-2 whitespace-nowrap flex items-center">
-                                            <Image src={ user.picture.medium } alt={ user.name.first } width={40} height={40} className="rounded-full" />
-                                            <span className="ml-4">{ user.name.first } { user.name.last }</span>
+                                    <tr key={i} className='border-b text-xs sm:text-sm cursor-pointer hover:bg-alleasy-blue/50'>
+                                        <td className="text-center pl-6 py-2 whitespace-nowrap flex items-center justify-start">
+                                            <Image src={ user.picture.medium } alt={ user.name.first } width={40} height={40} className="rounded-full lg:mr-6" />
+                                            <span className="ml-4">{ user.name.first } <span className='hidden lg:inline-flex'>{ user.name.last }</span></span>
                                         </td>
-                                        <td className="text-center px-6 py-2 whitespace-nowrap">{ user.gender }</td>
+                                        <td className="text-center px-6 py-2 whitespace-nowrap">{ user.email }</td>
                                         <td className="text-center px-6 py-2 whitespace-nowrap">{ user.nat }</td>
                                         <td className="text-center px-6 py-2 whitespace-nowrap">{ user.location.city }</td>
                                     </tr>
@@ -114,7 +113,6 @@ export function UserList() {
                     </table>
                 </div>
             </div>
-
         </section>
     )
 }
