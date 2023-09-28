@@ -95,9 +95,9 @@ function SimpleDialog(props: DialogProps) {
 
     <div className='flex items-center px-8 py-6'>
       { user.picture ? (
-        <Image src={user.picture.medium} alt={user.name.first} width={80} height={80} className='rounded-full' />
+        <Image src={user.picture.medium} alt={user.name.first} width={60} height={60} className='rounded-full' />
       ) : (
-        <AccountCircleIcon className="text-zinc-400"  sx={{ fontSize: '40px' }} />
+        <AccountCircleIcon className="text-zinc-400"  sx={{ fontSize: '60px' }} />
       ) } 
       <DialogTitle  sx={{ m: 0, p: 2 }}>{user.name.first} {user.name.last}</DialogTitle>
     </div>

@@ -20,6 +20,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
 interface DialogProps {
     open: boolean;
@@ -150,6 +152,18 @@ function SimpleDialog(props: DialogProps) {
 
   return (
     <Dialog onClose={handleClose} open={open} fullWidth>
+      <IconButton
+        aria-label="close"
+        onClick={handleClose}
+        sx={{
+          position: 'absolute',
+          right: 8,
+          top: 8,
+        }}
+      >
+        <CloseIcon />
+      </IconButton>
+      
       <DialogTitle  sx={{ m: 0, p: 2 }}>Criar novo usuário</DialogTitle>
 
       <DialogContent dividers className="flex">

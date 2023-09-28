@@ -6,7 +6,7 @@ import { GlobalContextProvider } from './contexts/GlobalContext'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'AllEasy User Register',
+  title: 'Lorem Ipsum - The User Register Platform',
   description: 'User Register platform',
 }
 
