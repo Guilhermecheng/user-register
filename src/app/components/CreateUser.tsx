@@ -2,22 +2,24 @@
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from '@mui/base';
+import { GlobalContext } from '../contexts/GlobalContext';
+import Image from 'next/image';
 
 import { useForm } from "react-hook-form";
 import { z } from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { Button } from '@mui/base';
+
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
+
 import TextField from '@mui/material/TextField';
-import { GlobalContext } from '../contexts/GlobalContext';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
-import Image from 'next/image';
 
 interface DialogProps {
     open: boolean;
@@ -209,7 +211,6 @@ function SimpleDialog(props: DialogProps) {
         </form>
         
       </DialogContent>
-      
     </Dialog>
   );
 }

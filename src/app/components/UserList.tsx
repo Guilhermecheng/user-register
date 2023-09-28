@@ -6,6 +6,7 @@ import { GlobalContext } from "../contexts/GlobalContext"
 import CreateUser from "./CreateUser";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import HourglassBottomTwoToneIcon from '@mui/icons-material/HourglassBottomTwoTone';
+import UserInfo from "./UserInfo";
 
 interface UserProps {
     email: string;
@@ -39,7 +40,7 @@ interface UserProps {
         medium: string;
         thumbnail?: string;
     }
-  };
+};
 
 
 export function UserList() {
@@ -85,13 +86,18 @@ export function UserList() {
                                 <tr key={i} className='border-b text-sm'>
                                     <td className="text-center px-6 py-2 whitespace-nowrap flex items-center">
                                         { user.picture ? (
-                                            <Image src={ user.picture.medium } alt={ user.name.first } width={40} height={40} className="rounded-full lg:mr-6" />
+                                            <Image src={ user.picture.medium } alt={ user.name.first } width={40} height={40} className="rounded-full" />
                                         ) : (
-                                            <AccountCircleIcon className="text-zinc-400 text-5xl" />
+                                            <AccountCircleIcon className="text-zinc-400"  sx={{ fontSize: '40px' }} />
                                         ) }
-                                        <span className="ml-4">{ user.name.first } { user.name.last }</span>
+                                        <span className="ml-4 lg:ml-10">{ user.name.first } { user.name.last }</span>
                                     </td>
-                                    <td className="text-center px-6 py-2 whitespace-nowrap">+ info</td>
+
+                                    <td className="">
+                                        <UserInfo userId={i}>
+                                            + info
+                                        </UserInfo>
+                                    </td>
                                 </tr>
                             )
                         })}
@@ -104,26 +110,30 @@ export function UserList() {
                             <tr className="text-sm sm:text-base">
                                 <th>Usuário</th>
                                 <th>Email</th>
-                                <th>Nacionalidade</th>
                                 <th>Cidade</th>
+                                <th>+</th>
                             </tr>
                         </thead>
                         <tbody className="[&>*:nth-child(odd)]:bg-white [&>*:nth-child(even)]:bg-zinc-100">
                             { users.map((user: UserProps, i: number) => {
                             
                                 return (
-                                    <tr key={i} className='border-b text-xs sm:text-sm cursor-pointer hover:bg-alleasy-blue/50'>
+                                    <tr key={i} className='border-b text-xs sm:text-sm'>
                                         <td className="text-center pl-6 py-2 whitespace-nowrap flex items-center justify-start">
                                             { user.picture ? (
-                                                <Image src={ user.picture.medium } alt={ user.name.first } width={40} height={40} className="rounded-full lg:mr-6" />
+                                                <Image src={ user.picture.medium } alt={ user.name.first } width={40} height={40} className="rounded-full" />
                                             ) : (
-                                                <AccountCircleIcon className="text-zinc-400 text-5xl" />
+                                                <AccountCircleIcon className="text-zinc-400"  sx={{ fontSize: '40px' }} />
                                             ) }
-                                            <span className="ml-4">{ user.name.first } <span className='hidden lg:inline-flex'>{ user.name.last }</span></span>
+                                            <span className="ml-4 lg:ml-10">{ user.name.first } <span className='hidden lg:inline-flex'>{ user.name.last }</span></span>
                                         </td>
                                         <td className="text-center px-6 py-2 whitespace-nowrap">{ user.email }</td>
-                                        <td className="text-center px-6 py-2 whitespace-nowrap">{ user.nat }</td>
                                         <td className="text-center px-6 py-2 whitespace-nowrap">{ user.location?.city }</td>
+                                        <td className="text-center px-6 py-2 whitespace-nowrap">
+                                            <UserInfo userId={i}>
+                                                + info
+                                            </UserInfo>
+                                        </td>
                                     </tr>
                                 )
                             })}
