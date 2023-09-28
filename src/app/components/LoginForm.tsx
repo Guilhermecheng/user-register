@@ -8,10 +8,10 @@ import { z } from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const signInFormValidation = z.object({
-    email: z.string().min(1, { message: "Email is required" }).email({
-        message: "Must be a valid email",
+    email: z.string().min(1, { message: "Insira seu email"  }).email({
+        message: "Insira um email válido",
     }),
-    password: z.string().min(3, { message: "A valid password is required (at least 3 digits)" }),
+    password: z.string().min(3, { message: "A senha está incorreta (deve conter pelo menos 3 dígitos)" }),
 })
 
 type SignInValidationSchema = z.infer<typeof signInFormValidation>;
