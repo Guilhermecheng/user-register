@@ -29,7 +29,7 @@ export function LoginForm() {
     }
 
     return (
-        <div className="text-alleasy-blue w-full max-w-[500px] lg:max-w-[680px] flex flex-col items-center justify-center bg-white px-6 sm:px-8 lg:px-20 py-6 sm:py-12 lg:py-32 rounded-xl shadow-xl shadow-zinc-800 md:shadow-none">
+        <div className="text-alleasy-blue w-full max-w-[500px] lg:max-w-[680px] flex flex-col items-center justify-center bg-white px-6 sm:px-8 lg:px-0 py-6 sm:py-12 lg:py-32 rounded-xl shadow-xl shadow-zinc-800 lg:shadow-none">
             <h1 className=" text-2xl md:text-3xl font-bold mb-1">Bem vindo de volta!</h1>
             <h1 className="text-sm md:text-base">Entre para continuar</h1>
 
