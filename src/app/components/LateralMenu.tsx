@@ -29,14 +29,15 @@ export function LateralMenu() {
 
             <div className='flex flex-col items-center gap-y-4 text-sm'>
                 <div className={`flex items-center ${isLateralMenuOpen ? '' : 'flex-col justify-center' }`}>
-                    <RecentActorsIcon className='flex text-4xl' />
+                    <RecentActorsIcon className='flex' fontSize='large' />
 
-                    <h1 className={`hidden ${isLateralMenuOpen ? 'lg:flex' : 'lg:hidden' } lg:ml-4 text-sm font-bold`}>AllEasy`s Userbook</h1>
+                    <h1 className={`hidden ${isLateralMenuOpen ? 'lg:flex' : 'lg:hidden' } lg:ml-4 text-sm font-bold`}>Lorem Ipsum</h1>
 
-                    <KeyboardDoubleArrowLeftIcon 
-                        className={`hidden lg:flex  cursor-pointer hover:bg-white/20 rounded-md ${isLateralMenuOpen ? "ml-8" : "rotate-180 mt-4"} transition-all`}
-                        onClick={() => setisLateralMenuOpen(!isLateralMenuOpen)} 
-                    />
+                    <div className={`hidden lg:flex cursor-pointer  hover:bg-white/20 rounded-md ${isLateralMenuOpen ? "ml-8" : "rotate-180 mt-4"} transition-all`}>
+                        <KeyboardDoubleArrowLeftIcon 
+                            onClick={() => setisLateralMenuOpen(!isLateralMenuOpen)} 
+                        />
+                    </div>
                 </div>
 
                 <div className='mt-16'>
