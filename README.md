@@ -34,6 +34,7 @@ npm run dev
 ## Tech
 
 - React / NextJS
+- Typescript
 - Tailwind
 - Material UI
 - API from https://randomuser.me/
